@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Love ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400;1,600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --deep-red:#7a0000;
+    --rich-red:#a30000;
+    --gold:#D4AF37;
+    --dark:#140000;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+    font-family:'Playfair Display',serif;
+    background:linear-gradient(160deg,#2b0000,#140000);
+    color:white;
+    overflow-x:hidden;
+}
+
+/* Floating Hearts */
+.heart{
+    position:fixed;
+    top:-10px;
+    color:rgba(255,0,0,0.7);
+    animation:fall linear infinite;
+    z-index:0;
+}
+
+@keyframes fall{
+    to{
+        transform:translateY(110vh) rotate(360deg);
+        opacity:0;
+    }
+}
+
+/* Intro */
+.intro{
+    position:fixed;
+    inset:0;
+    background:radial-gradient(circle,#3b0000,#140000);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    z-index:1000;
+    transition:opacity 1.5s ease;
+}
+
+.intro h1{
+    font-size:3rem;
+    color:var(--gold);
+    margin-bottom:30px;
+}
+
+.intro button{
+    padding:15px 40px;
+    background:var(--gold);
+    border:none;
+    border-radius:30px;
+    font-family:'Poppins',sans-serif;
+    letter-spacing:3px;
+    cursor:pointer;
+}
+
+.hidden{opacity:0;pointer-events:none}
+
+/* Sections */
+section{
+    padding:120px 20px;
+    max-width:800px;
+    margin:auto;
+    position:relative;
+    z-index:2;
+}
+
+h2{
+    font-size:2.7rem;
+    color:var(--gold);
+    text-align:center;
+    margin-bottom:40px;
+}
+
+p{
+    font-size:1.25rem;
+    line-height:2;
+    margin-bottom:25px;
+    opacity:0;
+    transform:translateY(20px);
+    transition:all 1s ease;
+}
+
+.visible{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* Secret */
+.secret{
+    text-align:center;
+    margin-top:40px;
+    font-family:'Poppins',sans-serif;
+    color:var(--gold);
+    cursor:pointer;
+    letter-spacing:2px;
+}
+
+.secret-message{
+    display:none;
+    margin-top:20px;
+    font-style:italic;
+    font-size:1.4rem;
+    text-align:center;
+}
+
+/* Final */
+.final{
+    text-align:center;
+    padding:150px 20px;
+}
+
+.final h1{
+    font-size:3.5rem;
+    color:var(--gold);
+    margin-bottom:20px;
+}
+
+button.unlock{
+    padding:18px 50px;
+    background:linear-gradient(45deg,var(--gold),#ffcc00);
+    border:none;
+    border-radius:40px;
+    font-family:'Poppins',sans-serif;
+    letter-spacing:4px;
+    cursor:pointer;
+}
+
+#foreverText{
+    display:none;
+    margin-top:30px;
+    font-size:1.6rem;
+    font-style:italic;
+}
+</style>
+</head>
+<body>
+
+<audio id="bgMusic" autoplay loop>
+<source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
+
+<div class="intro" id="intro">
+    <h1>For My Sweetheart ❤️</h1>
+    <button onclick="enter()">UNLOCK</button>
+</div>
+
+<section>
+<h2>My Love…</h2>
+
+<p>Some feelings are loud. Some are dramatic. But what I feel for you is deeper than noise. It is calm. It is intentional. It is real.</p>
+
+<p>You are my soft place in a hard world. My quiet joy. My answered prayer in human form.</p>
+
+<p>My Queen. My Heartbeat. My Safe Haven. Every version of you is a blessing I never overlook.</p>
+
+<div class="secret" onclick="revealSecret()">Tap Here… I Hid Something For You ❤️</div>
+<div class="secret-message" id="secretMessage">
+You are the woman I choose. Not because I have to… but because my heart is steady when it beats near yours.
+</div>
+
+</section>
+
+<section>
+<h2>If Love Had A Shape</h2>
+
+<p>It would curve like your smile.</p>
+<p>It would glow like your presence in my life.</p>
+<p>It would feel like peace wrapped in warmth.</p>
+
+<p>I do not love you halfway. I love you with depth. With intention. With promise.</p>
+
+<p>I may not always have the grandest gifts or the loudest displays, but this… this was built with my own hands. Every word, every detail — created only for you.</p>
+
+<p>Because sometimes love is not about what you spend. It’s about what you pour yourself into.</p>
+
+<p>And if all I can give right now is something crafted from my heart, then I give it fully. Without hesitation.</p>
+
+<p style="opacity:1; font-style:italic; margin-top:60px;">
+Forever yours,  
+Miracle 🤍
+</p>
+
+<p style="opacity:1; font-style:italic; margin-top:20px; color:#D4AF37;">
+Made with love for my Sweetheart, my Soft Place, my Always.
+</p>
+
+</section>
+
+<div class="final">
+<h1>I Choose You ❤️</h1>
+<button class="unlock" onclick="finalMessage()">FOREVER</button>
+<p id="foreverText">
+No matter where life leads us, remember this — you are deeply loved, chosen daily, and cherished endlessly.
+</p>
+</div>
+
+<script>
+function enter(){
+    document.getElementById('intro').classList.add('hidden');
+}
+
+function revealSecret(){
+    document.getElementById('secretMessage').style.display='block';
+}
+
+function finalMessage(){
+    document.getElementById('foreverText').style.display='block';
+}
+
+/* Scroll animation */
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add('visible');
+}
+});
+});
+document.querySelectorAll('p').forEach(p=>{
+observer.observe(p);
+});
+
+/* Floating hearts */
+setInterval(()=>{
+const heart=document.createElement("div");
+heart.classList.add("heart");
+heart.innerHTML="❤️";
+heart.style.left=Math.random()*100+"vw";
+heart.style.fontSize=(Math.random()*20+10)+"px";
+heart.style.animationDuration=(Math.random()*5+5)+"s";
+document.body.appendChild(heart);
+setTimeout(()=>heart.remove(),10000);
+},500);
+</script>
+
+</body>
+</html>
