@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Christina 💙</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --deep-blue: #0a1e3f;
+    --blue: #1e3f66;
+    --gold: #D4AF37;
+}
+
+/* Reset & Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Playfair Display', serif;
+    background: linear-gradient(160deg, var(--deep-blue), #050d20);
+    color: white;
+    overflow-x: hidden;
+}
+
+/* Floating Roses & Hearts */
+.floating {
+    position: fixed;
+    top: -10px;
+    font-size: 20px;
+    animation: fall linear infinite;
+    z-index: 0;
+}
+
+.heart-glow {
+    position: fixed;
+    font-size: 18px;
+    color: #ff4d6d;
+    text-shadow: 0 0 12px #ff4d6d, 0 0 24px #ff4d6d80;
+    opacity: 0.8;
+    pointer-events: none;
+    z-index: 0;
+    animation: drift linear infinite, pulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes drift {
+    0% { transform: translate(0, 0) rotate(0deg); opacity: 0; }
+    50% { opacity: 0.7; }
+    100% { transform: translate(var(--dx, 0px), 100vh) rotate(360deg); opacity: 0; }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.3); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.8; }
+}
+
+/* Intro Section */
+.intro {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: radial-gradient(circle, var(--blue), var(--deep-blue));
+    z-index: 1000;
+    transition: 1.5s ease;
+}
+
+.intro h1 {
+    font-size: 3rem;
+    color: var(--gold);
+    margin-bottom: 30px;
+}
+
+.intro button {
+    padding: 15px 40px;
+    background: var(--gold);
+    border: none;
+    border-radius: 30px;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 3px;
+    cursor: pointer;
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Content Sections */
+section {
+    padding: 120px 20px;
+    max-width: 900px;
+    margin: auto;
+    position: relative;
+    z-index: 2;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2.8rem;
+    color: var(--gold);
+    margin-bottom: 40px;
+}
+
+p {
+    font-size: 1.25rem;
+    line-height: 2;
+    margin-bottom: 25px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: 1s ease;
+}
+
+p.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Secret Message */
+.secret {
+    text-align: center;
+    margin-top: 40px;
+    color: var(--gold);
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+
+.secret-message {
+    display: none;
+    margin-top: 20px;
+    font-style: italic;
+    text-align: center;
+    font-size: 1.4rem;
+}
+
+/* Final Section */
+.final {
+    text-align: center;
+    padding: 150px 20px;
+}
+
+.final h1 {
+    font-size: 3.5rem;
+    color: var(--gold);
+    margin-bottom: 30px;
+}
+
+.final button {
+    padding: 18px 50px;
+    background: linear-gradient(45deg, var(--gold), #ffcc00);
+    border: none;
+    border-radius: 40px;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 4px;
+    cursor: pointer;
+}
+
+#foreverText {
+    display: none;
+    margin-top: 30px;
+    font-size: 1.6rem;
+    font-style: italic;
+}
+</style>
+</head>
+<body>
+
+<audio id="bgMusic" loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Intro -->
+<div class="intro" id="intro">
+    <h1>Hey Christina… You’re Special 💙</h1>
+    <button onclick="enter()">UNLOCK</button>
+</div>
+
+<!-- Affection Section -->
+<section>
+    <h2>Thinking of You, Christina…</h2>
+    <p>There are people who leave a mark on your life without even knowing it. You’re one of those people for me.</p>
+    <p>I want you to know that even in the little moments, you are appreciated, noticed, and genuinely cared for. Your laughter, your kindness, and the way you show up in the world inspire me in ways words can’t fully capture.</p>
+    <p>Life moves quickly, but today I’m pausing to celebrate you — not for anything you did, but simply for being the amazing person you are.</p>
+    <p>Even if we don’t say it often, I hope you can feel this message — it comes straight from my heart.</p>
+
+    <div class="secret" onclick="revealSecret()">A little secret… 💙</div>
+    <div class="secret-message" id="secretMessage">
+        Christina, you inspire me, and you bring light to the people around you. I’m grateful for every moment I get to witness your strength and your joy. — Miracle
+    </div>
+</section>
+
+<!-- Heartfelt Thoughts -->
+<section>
+    <h2>What Care Feels Like</h2>
+    <p>It’s noticing your smile and wishing it lasts all day, Christina.</p>
+    <p>It’s listening when you need a voice, or giving space when you need quiet.</p>
+    <p>It’s being quietly proud of you when you succeed, and silently rooting for you when life feels heavy.</p>
+    <p>I may not always find the perfect words, but I wanted to create this little space — something personal, intentional, and lasting — to show that you matter to me.</p>
+    <p>Even small gestures carry meaning, and this page is my way of letting you know that your presence makes life brighter.</p>
+    <p style="opacity:1; font-style:italic; margin-top:60px;">With admiration and warmth,</p>
+    <p style="opacity:1; font-style:italic; margin-top:20px; color:var(--gold);">Miracle 💙</p>
+</section>
+
+<!-- Final Section -->
+<div class="final">
+    <h1>Just For You, Christina 💙</h1>
+    <button onclick="finalMessage()">SEE MY WISH</button>
+    <p id="foreverText">
+        May your days be full of confidence, joy, and little surprises that make life sweeter. May you always feel appreciated, celebrated, and safe in being yourself. This message is a reminder that someone out there — me — thinks you’re extraordinary, and I’ll always cheer for your happiness. — Miracle
+    </p>
+</div>
+
+<script>
+// Unlock Intro
+function enter() {
+    document.getElementById("intro").classList.add("hidden");
+    document.getElementById("bgMusic").play();
+}
+
+// Reveal Secret
+function revealSecret() {
+    document.getElementById("secretMessage").style.display = "block";
+}
+
+// Show Final Message
+function finalMessage() {
+    document.getElementById("foreverText").style.display = "block";
+}
+
+// Animate Paragraphs on Scroll
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add("visible");
+    });
+});
+document.querySelectorAll("section p").forEach(p => observer.observe(p));
+
+// Falling Roses
+setInterval(() => {
+    const el = document.createElement("div");
+    el.className = "floating";
+    el.innerText = Math.random() < 0.7 ? "🌹" : "❤️";
+    el.style.left = Math.random() * 100 + "vw";
+    el.style.fontSize = (Math.random() * 20 + 15) + "px";
+    el.style.animationDuration = (Math.random() * 5 + 5) + "s";
+    document.body.appendChild(el);
+    setTimeout(() => el.remove(), 10000);
+}, 500);
+
+// Continuous Glowing Pulsing Hearts
+setInterval(() => {
+    const heart = document.createElement("div");
+    heart.className = "heart-glow";
+    heart.innerText = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (Math.random() * 15 + 15) + "px";
+    heart.style.setProperty('--dx', (Math.random() * 200 - 100) + 'px');
+    heart.style.animationDuration = (Math.random() * 10 + 10) + "s";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 15000);
+}, 700);
+</script>
+
+</body>
+</html>
